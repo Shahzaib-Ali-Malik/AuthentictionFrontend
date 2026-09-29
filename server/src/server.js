@@ -1,6 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import expres from 'express'
+import express from 'express'
 import app from './app/app.js'
 import config from './config/config.js'
 import connectDB from './config/db.js';

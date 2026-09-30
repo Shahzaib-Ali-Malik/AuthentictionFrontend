@@ -11,13 +11,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serve frontend static files in production
+// Serve frontend static files in production
 if (process.env.NODE_ENV === 'production') {
   const clientPath = path.join(__dirname, '../../client/dist'); 
   
   app.use(express.static(clientPath));
 
-  // FIXED: Changed '*' to '/*' for modern Express/path-to-regexp compatibility
-  app.get('/*', (req, res) => {
+  // FIXED: Using a named wildcard parameter compatible with modern Express/path-to-regexp
+  app.get(/.*/, (req, res) => {
     res.sendFile(path.join(clientPath, 'index.html'));
   });
 }

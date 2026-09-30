@@ -10,7 +10,7 @@ export const useApi = () => {
     // 2. Wrap axios.create in useMemo so it stays stable across renders
     const api = useMemo(() => {
         const instance = axios.create({
-            baseURL: import.meta.env.PROD ? '' : 'http://localhost:5173/api',
+            baseURL: import.meta.env.PROD ? '/api' : 'http://localhost:5173',
             withCredentials: true
         });
 
